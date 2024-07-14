@@ -12,12 +12,35 @@ export default {
   components: {
     HeaderApp,
     MainApp
-  }
+  },
+  data() {
+    return {
+      store,
+    }
+  },
+  methods: {
+    getTitle() {
+      let endPoint = store.moviesURL;
+
+      if (store.searchTitle !== '') {
+        endPoint += `${store.searchTitle}`
+      };
+      axios.get(endPoint).then(res => {
+        console.log(res.data.results);
+        store.movieList = res.data.results
+      });
+
+      store.searchTitle = '';
+    },
+  },
+  created() {
+    this.getTitle();
+  },
 }
 </script>
 
 <template>
-  <HeaderApp />
+  <HeaderApp @selectTitle="getTitle" />
   <MainApp />
 </template>
 

@@ -1,16 +1,15 @@
 <script>
-// import axios
-import axios from 'axios';
-import { store } from './store.js';
+
+import { store } from '../store.js';
 
 export default {
-    name: 'HeaderApp'
+    name: 'HeaderApp',
 
     data() {
         return {
             store
         }
-    },
+    }
 
 
 }

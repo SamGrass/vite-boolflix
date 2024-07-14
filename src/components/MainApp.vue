@@ -1,6 +1,10 @@
 <script>
+
+
 export default {
     name: 'MainApp'
+
+    // prendere la lista in store per poi farne un ciclo di carte 
 }
 </script>
 
