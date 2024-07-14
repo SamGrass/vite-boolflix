@@ -30,7 +30,7 @@ export default {
 
                 <!-- container lista film -->
                 <div class="movie-list-container">
-                    <Card v-for="(movie, index) in store.moviesList" :key="index" :title="movie.title" :originalTitle="movie.original_title" :lang="movie.original_language" :rating="movie.vote_average" :synopsis="movie.overview"/>
+                    <Card v-for="(movie, index) in store.moviesList" :key="index" :title="movie.title" :originalTitle="movie.original_title" :lang="movie.original_language" :rating="movie.vote_average" :synopsis="movie.overview" :image="movie.poster_path"/>
                     <!-- lista film da aggiungere con card -->
                 </div>
             </section>
