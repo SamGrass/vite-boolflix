@@ -1,10 +1,23 @@
 <script>
-
+import Card from './Card.vue'
+import { store } from '../store.js';
 
 export default {
-    name: 'MainApp'
+    name: 'MainApp',
+    components: {
+        Card
+    },
+    // prendere la lista in store per poi farne un ciclo di carte
+    data() {
+        return {
+            store
+        }
+    },
+    methods: {
+        // trasformare il rating dei film in un rating da 0 a 5 invece che da 0 a 10
+    },
 
-    // prendere la lista in store per poi farne un ciclo di carte 
+     
 }
 </script>
 
@@ -17,6 +30,7 @@ export default {
 
                 <!-- container lista film -->
                 <div class="movie-list-container">
+                    <Card v-for="(movie, index) in store.moviesList" :key="index" :title="movie.title" :originalTitle="movie.original_title" :lang="movie.original_language" :rating="movie.vote_average" :synopsis="movie.overview"/>
                     <!-- lista film da aggiungere con card -->
                 </div>
             </section>
@@ -31,6 +45,16 @@ export default {
 main {
     padding: 7rem 0;
     background-color: #555555;
+
+    h2 {
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+    }
+
+    .movie-list-container{
+        display: flex;
+        flex-wrap: wrap;
+    }
 
 }
 </style>
