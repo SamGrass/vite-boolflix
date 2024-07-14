@@ -1,6 +1,18 @@
 <script>
+// import axios
+import axios from 'axios';
+import { store } from './store.js';
+
 export default {
     name: 'HeaderApp'
+
+    data() {
+        return {
+            store
+        }
+    },
+
+
 }
 </script>
 
@@ -8,8 +20,9 @@ export default {
     <header>
         <h1>HEADER</h1>
         <div class="searchbar">
-            <input type="text" placeholder="inserisci titolo">
-            <div>cerca</div>
+            <input type="text" v-model="store.searchTitle" @keyup.enter="$emit('selectTitle')"
+                placeholder="inserisci titolo">
+            <!-- <div>cerca</div> -->
         </div>
     </header>
 </template>
