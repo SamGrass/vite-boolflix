@@ -27,7 +27,7 @@ export default {
       };
       axios.get(endPoint).then(res => {
         console.log(res.data.results);
-        store.movieList = res.data.results
+        store.moviesList = res.data.results
       });
 
       store.searchTitle = '';
@@ -41,9 +41,20 @@ export default {
 
 <template>
   <HeaderApp @selectTitle="getTitle" />
-  <MainApp />
+  <MainApp/>
 </template>
 
 <style lang="scss">
+@use './styles/partials/variables' as *;
 @use './styles/general.scss' as *;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $primary;
+}
+
 </style>
