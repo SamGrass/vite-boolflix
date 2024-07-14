@@ -6,7 +6,11 @@ export default {
 
 <template>
     <header>
-        HEADER
+        <h1>HEADER</h1>
+        <div class="searchbar">
+            <input type="text" placeholder="inserisci titolo">
+            <div>cerca</div>
+        </div>
     </header>
 </template>
 
@@ -20,7 +24,16 @@ header {
     width: 100%;
     z-index: 1000;
     height: 5rem;
+    padding: 0 2rem;
     color: $primary;
+    @include flex-center;
+    justify-content: space-between;
+
+    .searchbar {
+        @include flex-center;
+        gap: 0.5rem;
+
+    }
 
 }
 </style>
