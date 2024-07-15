@@ -1,4 +1,7 @@
 <script>
+import { store } from '../store.js';
+import axios from 'axios';
+
 
 export default {
     name: 'Card',
@@ -9,6 +12,24 @@ export default {
         rating: Number,
         synopsis: String,
         image: String,
+    },
+    methods: {
+        getFlag(lang) {
+            lang = lang.toUpperCase();
+            
+            if (lang === 'EN') {
+            lang = 'US'
+            } else if (lang === 'JA') {
+                lang = 'JP'
+            };
+
+            const flag = store.flagsURL + `${lang}/flat/64.png`;
+            axios.get(flag).then(res => {
+                return res
+            }).catch(err => {
+                console.log(err.name);
+            })
+        }
     },
 }
 </script>
@@ -24,7 +45,9 @@ export default {
         <div class="txt-card-container">
             <h3>{{ title }}</h3>
             <h4>{{ originalTitle }}</h4>
-            <div >{{ lang }}</div>
+            <div >
+                <img class="flag" :src="getFlag(lang)" alt="">
+            </div>
             <div class="rating">
                 <i v-for="n in rating" class="fa-solid fa-star"></i>
             </div>
