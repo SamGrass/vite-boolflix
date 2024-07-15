@@ -1,6 +1,7 @@
 <script>
 import Card from './Card.vue'
 import { store } from '../store.js';
+import axios from 'axios';
 
 export default {
     name: 'MainApp',
@@ -14,6 +15,17 @@ export default {
         }
     },
     methods: {
+        getFlag(lang) {
+            // lang = lang.toUpperCase();
+            // const flag = store.flagsURL += `${lang}/flat/64.png`;
+            // if (lang === 'EN') {
+            //     lang = 'US'
+            // }
+
+            // axios.get(flag).then(res => {
+            //     return res
+            // })
+        },
         // trasformare il rating dei film in un rating da 0 a 5 invece che da 0 a 10
         getRating(num) {
             let rating = Math.ceil(num / 2);
@@ -22,7 +34,10 @@ export default {
             // }
             return rating
         }
-    },    
+    },  
+    created() {
+        
+    },  
 }
 </script>
 
