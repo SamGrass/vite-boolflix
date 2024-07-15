@@ -1,4 +1,5 @@
 <script>
+
 export default {
     name: 'Card',
     props: {
@@ -8,7 +9,7 @@ export default {
         rating: Number,
         synopsis: String,
         image: String,
-    }
+    },
 }
 </script>
 
@@ -23,8 +24,10 @@ export default {
         <div class="txt-card-container">
             <h3>{{ title }}</h3>
             <h4>{{ originalTitle }}</h4>
-            <div>{{ lang }}</div>
-            <div>{{ rating }}</div>
+            <div >{{ lang }}</div>
+            <div class="rating">
+                <i v-for="n in rating" class="fa-solid fa-star"></i>
+            </div>
             <div class="txt-justified">{{ synopsis }}</div>
         </div>
     </div>
@@ -63,9 +66,14 @@ export default {
             margin-bottom: 0.5rem;
         }
 
+        // .rating::after {
+        //     font-family: 'FontAwesome';
+        //     content: '\f005';
+        // }
         .txt-justified {
             text-align: justify;
         }
+
     }
 
     &:hover {

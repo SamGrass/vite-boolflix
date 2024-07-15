@@ -15,9 +15,14 @@ export default {
     },
     methods: {
         // trasformare il rating dei film in un rating da 0 a 5 invece che da 0 a 10
-    },
-
-     
+        getRating(num) {
+            let rating = Math.ceil(num / 2);
+            // for (let i = 0; i <= rating; i++) {
+            //     const element = array[i];   
+            // }
+            return rating
+        }
+    },    
 }
 </script>
 
@@ -30,7 +35,7 @@ export default {
 
                 <!-- container lista film -->
                 <div class="movie-list-container">
-                    <Card v-for="(movie, index) in store.moviesList" :key="index" :title="movie.title" :originalTitle="movie.original_title" :lang="movie.original_language" :rating="movie.vote_average" :synopsis="movie.overview" :image="movie.poster_path"/>
+                    <Card v-for="(movie, index) in store.moviesList" :key="index" :title="movie.title" :originalTitle="movie.original_title" :lang="movie.original_language" :rating="getRating(movie.vote_average)" :synopsis="movie.overview" :image="movie.poster_path"/>
                     <!-- lista film da aggiungere con card -->
                 </div>
             </section>

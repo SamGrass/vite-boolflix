@@ -20,17 +20,16 @@ export default {
   },
   methods: {
     getTitle() {
-      let endPoint = store.moviesURL;
+      let movieApi = store.moviesURL;
 
       if (store.searchTitle !== '') {
-        endPoint += `${store.searchTitle}`
+        movieApi += `${store.searchTitle}`
       };
-      axios.get(endPoint).then(res => {
+      axios.get(movieApi).then(res => {
         console.log(res.data.results);
-        store.moviesList = res.data.results
-      });
-
-      store.searchTitle = '';
+        store.moviesList = res.data.results;
+      }); 
+      store.searchTitle = '';  
     },
   },
   created() {
@@ -41,7 +40,7 @@ export default {
 
 <template>
   <HeaderApp @selectTitle="getTitle" />
-  <MainApp/>
+  <MainApp />
 </template>
 
 <style lang="scss">
