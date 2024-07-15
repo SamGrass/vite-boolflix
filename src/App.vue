@@ -21,14 +21,20 @@ export default {
   methods: {
     getTitle() {
       let movieApi = store.moviesURL;
+      let tvSeriesApi = store.tvSeriesURL;
 
       if (store.searchTitle !== '') {
         movieApi += `${store.searchTitle}`
+        tvSeriesApi += `${store.searchTitle}`
       };
       axios.get(movieApi).then(res => {
         console.log(res.data.results);
         store.moviesList = res.data.results;
       }); 
+      axios.get(tvSeriesApi).then(res => {
+        console.log(res.data.results);
+        store.tvSeriesList = res.data.results;
+      });
       store.searchTitle = '';  
     },
   },

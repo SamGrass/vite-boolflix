@@ -40,8 +40,14 @@ export default {
 
                 <!-- container lista film -->
                 <div class="movie-list-container">
-                    <Card v-for="(movie, index) in store.moviesList" :key="index" :title="movie.title" :originalTitle="movie.original_title" :lang="movie.original_language" :rating="getRating(movie.vote_average)" :synopsis="movie.overview" :image="movie.poster_path"/>
+                    <Card v-for="(movie, index) in store.moviesList" :key="index" :title="movie.title" :originalTitle="movie.original_title" :lang="movie.original_language" :rating="getRating(movie.vote_average)" :synopsis="movie.overview" :image="`w342${movie.poster_path}`"/>
+                </div>
+
+                <h2>SERIE TV</h2>
+
+                <div class="movie-list-container">
                     <!-- lista film da aggiungere con card -->
+                    <Card v-for="(tvSerie, index) in store.tvSeriesList" :key="index" :title="tvSerie.name" :originalTitle="tvSerie.original_name" :lang="tvSerie.original_language" :rating="getRating(tvSerie.vote_average)" :synopsis="tvSerie.overview" :image="`w300${tvSerie.poster_path}`"/>
                 </div>
             </section>
             <!-- serie tv -->
@@ -58,7 +64,7 @@ main {
 
     h2 {
         font-size: 1.8rem;
-        margin-bottom: 2rem;
+        margin: 1rem 0 2rem;
     }
 
     .movie-list-container{

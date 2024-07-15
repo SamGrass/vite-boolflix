@@ -38,15 +38,15 @@ export default {
     <div class="card">
         <!-- lato locandina immagine -->
         <div class="image-container">
-            <img :src="`https://image.tmdb.org/t/p/w342${image}`" :alt="originalTitle">
+            <img :src="`https://image.tmdb.org/t/p/${image}`" :alt="originalTitle">
         </div>
         
         <!-- lato carta da vedere in hover -->
         <div class="txt-card-container">
             <h3>{{ title }}</h3>
             <h4>{{ originalTitle }}</h4>
-            <div >
-                <img class="flag" :src="getFlag(lang)" alt="">
+            <div >{{ lang }}
+                <!-- <img class="flag" :src="getFlag(lang)" alt=""> -->
             </div>
             <div class="rating">
                 <i v-for="n in rating" class="fa-solid fa-star"></i>
